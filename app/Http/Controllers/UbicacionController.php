@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cabezal;
+use App\Models\Ubicacion;
 use Illuminate\Http\Request;
 
-class CabezalController extends Controller
+class UbicacionController extends Controller
 {
     public function readAll()
     {
-        return Cabezal::all();
+        return Ubicacion::all();
     }
 
     // metodos http crud
@@ -17,24 +17,24 @@ class CabezalController extends Controller
     {
         $data = $this->validateForm($request);
 
-        return Cabezal::insert($data);
+        return Ubicacion::insert($data);
     }
 
     public function update($id, Request $request)
     {
         $data = $this->validateForm($request);
 
-        return Cabezal::find($id)->update($data);
+        return Ubicacion::find($id)->update($data);
     }
     public function delete($id)
     {
-        Cabezal::find($id)->delete();
+        Ubicacion::find($id)->delete();
     }
     public function validateForm(Request $request)
     {
         $validatedData = $request->validate([
-            'placa' => 'required',
-            'marca' => 'required',
+            'name' => 'required',
+            'address' => 'required',
         ]);
         return $validatedData;
     }

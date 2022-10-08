@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CabezalController;
+use App\Http\Controllers\UbicacionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,10 @@ Route::controller(CabezalController::class)->group(function () {
     Route::patch('/cabezal/{id}', 'update');
     Route::post('/cabezal', 'create');
     Route::delete('/cabezal/{id}', 'delete');
+});
+Route::controller(UbicacionController::class)->group(function () {
+    Route::get('/ubicacion', 'readAll');
+    Route::patch('/ubicacion/{id}', 'update');
+    Route::post('/ubicacion', 'create');
+    Route::delete('/ubicacion/{id}', 'delete');
 });
