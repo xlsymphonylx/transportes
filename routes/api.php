@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BodegaController;
 use App\Http\Controllers\CabezalController;
 use App\Http\Controllers\UbicacionController;
 use Illuminate\Http\Request;
@@ -26,4 +27,10 @@ Route::controller(UbicacionController::class)->group(function () {
     Route::patch('/ubicacion/{id}', 'update');
     Route::post('/ubicacion', 'create');
     Route::delete('/ubicacion/{id}', 'delete');
+});
+Route::controller(BodegaController::class)->group(function () {
+    Route::get('/bodega', 'readAll');
+    Route::patch('/bodega/{id}', 'update');
+    Route::post('/bodega', 'create');
+    Route::delete('/bodega/{id}', 'delete');
 });
