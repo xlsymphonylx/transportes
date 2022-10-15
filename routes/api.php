@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BodegaController;
 use App\Http\Controllers\CabezalController;
+use App\Http\Controllers\TransportistaController;
 use App\Http\Controllers\UbicacionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -33,4 +34,10 @@ Route::controller(BodegaController::class)->group(function () {
     Route::patch('/bodega/{id}', 'update');
     Route::post('/bodega', 'create');
     Route::delete('/bodega/{id}', 'delete');
+});
+Route::controller(TransportistaController::class)->group(function () {
+    Route::get('/transportista', 'readAll');
+    Route::patch('/transportista/{id}', 'update');
+    Route::post('/transportista', 'create');
+    Route::delete('/transportista/{id}', 'delete');
 });
