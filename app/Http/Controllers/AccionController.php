@@ -33,8 +33,10 @@ class AccionController extends Controller
     public function validateForm(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required',
-            'address' => 'required',
+            'fecha' => 'required',
+            'procedencia' => 'required',
+            'destino' => 'required',
+            'carga' => 'required',
         ]);
         return $validatedData;
     }

@@ -18,6 +18,7 @@ class Piloto extends Migration
             $table->string('name');
             $table->string('dpi');
             $table->string('address');
+            $table->string('number');
         });
     }
 

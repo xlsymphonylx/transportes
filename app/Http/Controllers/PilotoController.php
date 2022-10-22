@@ -35,6 +35,8 @@ class PilotoController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'address' => 'required',
+            'dpi' => 'required',
+            'number' => 'required',
         ]);
         return $validatedData;
     }

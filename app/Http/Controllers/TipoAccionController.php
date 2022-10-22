@@ -33,8 +33,7 @@ class TipoAccionController extends Controller
     public function validateForm(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required',
-            'address' => 'required',
+            'description' => 'required',
         ]);
         return $validatedData;
     }
