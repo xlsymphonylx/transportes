@@ -18,6 +18,7 @@ class AccionController extends Controller
             $actions[$key]->transportistaName = $action->cabezal->transportista->name;
             $actions[$key]->pilotoName = $action->cabezal->piloto->name;
             $actions[$key]->pilotoName = $action->cabezal->piloto->name;
+            $actions[$key]->userName = $action->user->name;
             $actions[$key]->bodegaDestino = $action->bodega->name;
         }
         return response()->json($actions);
@@ -34,6 +35,7 @@ class AccionController extends Controller
     {
         $data = $this->validateForm($request);
         $data['fecha'] = date('Y-m-d H:i:s');
+        $data['user_id'] = $request->user()->id;
         return Accion::insert($data);
     }
 

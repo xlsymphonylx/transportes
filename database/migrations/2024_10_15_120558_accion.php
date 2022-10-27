@@ -28,6 +28,8 @@ class Accion extends Migration
             $table->foreign('destino_id')->references('id')->on('ubicacion');
             $table->unsignedBigInteger('tipo_accion_id');
             $table->foreign('tipo_accion_id')->references('id')->on('tipo_accion');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

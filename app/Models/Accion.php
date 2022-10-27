@@ -31,4 +31,8 @@ class Accion extends Model
     {
         return $this->hasOne(Bodega::class, 'id', 'bodega_destino_id');
     }
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
 }
