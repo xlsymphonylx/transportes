@@ -11,4 +11,8 @@ class TipoAccion extends Model
     protected $table = "tipo_accion";
     protected $guarded = ['id'];
     public $timestamps = false;
+    public function ubicacion()
+    {
+        return $this->hasOne(Ubicacion::class, 'id', 'ubicacion_id');
+    }
 }

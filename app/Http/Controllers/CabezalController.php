@@ -9,9 +9,20 @@ class CabezalController extends Controller
 {
     public function readAll()
     {
-        return Cabezal::all();
+        $cabezales = Cabezal::get();
+        foreach ($cabezales as $key => $cabezal) {
+            $cabezales[$key]->transportistaName = $cabezal->transportista->name;
+            $cabezales[$key]->pilotoName = $cabezal->piloto->name;
+        }
+        return response()->json($cabezales);
     }
-
+    public function readOne($id)
+    {
+        $cabezal = Cabezal::find($id);
+        $cabezal->transportistaName = $cabezal->transportista->name;
+        $cabezal->pilotoName = $cabezal->piloto->name;
+        return response()->json($cabezal);
+    }
     // metodos http crud
     public function create(Request $request)
     {
@@ -35,6 +46,8 @@ class CabezalController extends Controller
         $validatedData = $request->validate([
             'placa' => 'required',
             'marca' => 'required',
+            'transportista_id' => 'required',
+            'piloto_id' => 'required',
         ]);
         return $validatedData;
     }

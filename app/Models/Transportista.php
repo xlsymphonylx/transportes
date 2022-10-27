@@ -11,4 +11,8 @@ class Transportista extends Model
     protected $guarded = ['id'];
     public $timestamps = false;
     use HasFactory;
+    public function contacto()
+    {
+        return $this->hasOne(Contacto::class, 'id', 'contacto_id');
+    }
 }

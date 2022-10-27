@@ -11,4 +11,8 @@ class Bodega extends Model
     protected $table = "bodega";
     protected $guarded = ['id'];
     public $timestamps = false;
+    public function ubicacion()
+    {
+        return $this->hasOne(Ubicacion::class, 'id', 'ubicacion_id');
+    }
 }

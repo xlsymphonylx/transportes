@@ -11,7 +11,11 @@ class ContactoController extends Controller
     {
         return Contacto::all();
     }
-
+    public function readOne($id)
+    {
+        $data = Contacto::find($id);
+        return response()->json($data);
+    }
     // metodos http crud
     public function create(Request $request)
     {
@@ -34,7 +38,8 @@ class ContactoController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required',
-            'address' => 'required',
+            'number' => 'required',
+            'email' => 'required',
         ]);
         return $validatedData;
     }

@@ -9,9 +9,18 @@ class TransportistaController extends Controller
 {
     public function readAll()
     {
-        return Transportista::all();
+        $transportistas = Transportista::get();
+        foreach ($transportistas as $key => $transportista) {
+            $transportistas[$key]->contactoName = $transportista->contacto->name;
+        }
+        return response()->json($transportistas);
     }
-
+    public function readOne($id)
+    {
+        $transportista = Transportista::find($id);
+        $transportista->ubicacionName = $transportista->ubicacion->name;
+        return response()->json($transportista);
+    }
     // metodos http crud
     public function create(Request $request)
     {
@@ -35,6 +44,7 @@ class TransportistaController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'address' => 'required',
+            'contacto_id' => 'required'
         ]);
         return $validatedData;
     }

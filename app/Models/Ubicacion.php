@@ -11,4 +11,5 @@ class Ubicacion extends Model
     protected $table = "ubicacion";
     protected $guarded = ['id'];
     public $timestamps = false;
+   
 }

@@ -9,9 +9,14 @@ class TipoAccionController extends Controller
 {
     public function readAll()
     {
-        return TipoAccion::all();
+        $tipoAcciones = TipoAccion::get();
+        return response()->json($tipoAcciones);
     }
-
+    public function readOne($id)
+    {
+        $tipoAccion = TipoAccion::find($id);
+        return response()->json($tipoAccion);
+    }
     // metodos http crud
     public function create(Request $request)
     {

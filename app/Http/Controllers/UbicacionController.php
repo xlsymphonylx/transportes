@@ -9,9 +9,14 @@ class UbicacionController extends Controller
 {
     public function readAll()
     {
-        return Ubicacion::all();
+        $ubications = Ubicacion::get();
+        return response()->json($ubications);
     }
-
+    public function readOne($id)
+    {
+        $ubication = Ubicacion::find($id);
+        return response()->json($ubication);
+    }
     // metodos http crud
     public function create(Request $request)
     {

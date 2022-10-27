@@ -11,4 +11,12 @@ class Cabezal extends Model
     protected $guarded = ['id'];
     public $timestamps = false;
     use HasFactory;
+    public function transportista()
+    {
+        return $this->hasOne(Transportista::class, 'id', 'transportista_id');
+    }
+    public function piloto()
+    {
+        return $this->hasOne(Piloto::class, 'id', 'piloto_id');
+    }
 }

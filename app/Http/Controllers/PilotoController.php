@@ -11,7 +11,11 @@ class PilotoController extends Controller
     {
         return Piloto::all();
     }
-
+    public function readOne($id)
+    {
+        $data = Piloto::find($id);
+        return response()->json($data);
+    }
     // metodos http crud
     public function create(Request $request)
     {

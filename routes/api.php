@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 Route::controller(CabezalController::class)->group(function () {
     Route::get('/cabezal', 'readAll');
     Route::patch('/cabezal/{id}', 'update');
+    Route::get('/cabezal/{id}', 'readOne');
     Route::post('/cabezal', 'create');
     Route::delete('/cabezal/{id}', 'delete');
 });
@@ -36,12 +37,14 @@ Route::controller(UbicacionController::class)->group(function () {
 });
 Route::controller(BodegaController::class)->group(function () {
     Route::get('/bodega', 'readAll');
+    Route::get('/bodega/{id}', 'readOne');
     Route::patch('/bodega/{id}', 'update');
     Route::post('/bodega', 'create');
     Route::delete('/bodega/{id}', 'delete');
 });
 Route::controller(TransportistaController::class)->group(function () {
     Route::get('/transportista', 'readAll');
+    Route::get('/transportista/{id}', 'readOne');
     Route::patch('/transportista/{id}', 'update');
     Route::post('/transportista', 'create');
     Route::delete('/transportista/{id}', 'delete');
@@ -55,24 +58,21 @@ Route::controller(AccionController::class)->group(function () {
 });
 Route::controller(TipoAccionController::class)->group(function () {
     Route::get('/tipo-accion', 'readAll');
-    Route::patch('/tipo-accion/{id}', 'update');
-    Route::post('/tipo-accion', 'create');
-    Route::delete('/tipo-accion/{id}', 'delete');
-});
-Route::controller(TipoAccionController::class)->group(function () {
-    Route::get('/tipo-accion', 'readAll');
+    Route::get('/tipo-accion/{id}', 'readOne');
     Route::patch('/tipo-accion/{id}', 'update');
     Route::post('/tipo-accion', 'create');
     Route::delete('/tipo-accion/{id}', 'delete');
 });
 Route::controller(PilotoController::class)->group(function () {
     Route::get('/piloto', 'readAll');
+    Route::get('/piloto/{id}', 'readOne');
     Route::patch('/piloto/{id}', 'update');
     Route::post('/piloto', 'create');
     Route::delete('/piloto/{id}', 'delete');
 });
 Route::controller(ContactoController::class)->group(function () {
     Route::get('/contacto', 'readAll');
+    Route::get('/contacto/{id}', 'readOne');
     Route::patch('/contacto/{id}', 'update');
     Route::post('/contacto', 'create');
     Route::delete('/contacto/{id}', 'delete');

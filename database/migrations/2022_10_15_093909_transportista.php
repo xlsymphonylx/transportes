@@ -17,6 +17,8 @@ class Transportista extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('address');
+            $table->unsignedBigInteger('contacto_id');
+            $table->foreign('contacto_id')->references('id')->on('contacto');
         });
     }
 

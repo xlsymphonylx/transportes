@@ -16,6 +16,8 @@ class Bodega extends Migration
         Schema::create('bodega', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->unsignedBigInteger('ubicacion_id');
+            $table->foreign('ubicacion_id')->references('id')->on('ubicacion');
         });
     }
 

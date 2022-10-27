@@ -9,9 +9,18 @@ class BodegaController extends Controller
 {
     public function readAll()
     {
-        return Bodega::all();
+        $bodegas = Bodega::get();
+        foreach ($bodegas as $key => $bodega) {
+            $bodegas[$key]->ubicacionName = $bodega->ubicacion->name;
+        }
+        return response()->json($bodegas);
     }
-
+    public function readOne($id)
+    {
+        $data = Bodega::find($id);
+        $data->ubicacionName = $data->ubicacion->name;
+        return response()->json($data);
+    }
     // metodos http crud
     public function create(Request $request)
     {
@@ -34,6 +43,8 @@ class BodegaController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required',
+            'ubicacion_id' => 'required',
+
         ]);
         return $validatedData;
     }

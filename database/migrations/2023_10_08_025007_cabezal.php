@@ -17,14 +17,18 @@ class Cabezal extends Migration
             $table->bigIncrements('id');
             $table->string('placa');
             $table->string('marca');
+            $table->unsignedBigInteger('transportista_id');
+            $table->foreign('transportista_id')->references('id')->on('transportista');
+            $table->unsignedBigInteger('piloto_id');
+            $table->foreign('piloto_id')->references('id')->on('piloto');
         });
     }
     /* Reverse the migrations.
     *
     * @return void
     */
-   public function down()
-   {
-       Schema::drop('cabezal');
-   }
+    public function down()
+    {
+        Schema::drop('cabezal');
+    }
 }
