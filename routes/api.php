@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 Route::controller(AuthController::class)->group(function () {
     Route::post('/register', 'register');
     Route::post('/login', 'login');
+    Route::post('/logout', 'logout');
     Route::get('/userInfo', 'userInfo')->middleware('auth:sanctum');
 });
 
@@ -38,6 +39,7 @@ Route::controller(CabezalController::class)->middleware('auth:sanctum')->group(f
 });
 Route::controller(UbicacionController::class)->middleware('auth:sanctum')->group(function () {
     Route::get('/ubicacion', 'readAll');
+    Route::get('/ubicacion/{id}', 'readOne');
     Route::patch('/ubicacion/{id}', 'update');
     Route::post('/ubicacion', 'create');
     Route::delete('/ubicacion/{id}', 'delete');
@@ -59,6 +61,7 @@ Route::controller(TransportistaController::class)->middleware('auth:sanctum')->g
 
 Route::controller(AccionController::class)->middleware('auth:sanctum')->group(function () {
     Route::get('/accion', 'readAll');
+    Route::get('/accion/{id}', 'readOne');
     Route::patch('/accion/{id}', 'update');
     Route::post('/accion', 'create');
     Route::delete('/accion/{id}', 'delete');
