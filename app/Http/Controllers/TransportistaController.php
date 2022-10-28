@@ -18,7 +18,7 @@ class TransportistaController extends Controller
     public function readOne($id)
     {
         $transportista = Transportista::find($id);
-        $transportista->ubicacionName = $transportista->ubicacion->name;
+        $transportista->contactoName = $transportista->contacto->name;
         return response()->json($transportista);
     }
     // metodos http crud
