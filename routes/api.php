@@ -28,6 +28,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/login', 'login');
     Route::post('/logout', 'logout');
     Route::get('/userInfo', 'userInfo')->middleware('auth:sanctum');
+    Route::get('/users', 'getAll')->middleware('auth:sanctum');
 });
 
 Route::controller(CabezalController::class)->middleware('auth:sanctum')->group(function () {
